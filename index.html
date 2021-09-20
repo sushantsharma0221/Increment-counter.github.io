@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inc Counter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,600&display=swap');
+
+body{
+    background-color: rgb(9, 53, 119);
+    display: flex;
+    justify-content: center;
+    margin-top: 207px;
+    color:rgb(206, 220, 230);
+    font-family: nunito;
+}
+
+.container{
+    padding:70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ </style>
+</head>
+<body> <div class="container">
+    <i class="fas fa-coffee fa-8x"></i>
+    <div class="counter" data-target="4000"></div>
+    <span><h2>Projects finished</h2></span>
+    
+</div>
+<div class="container">
+    <i class="fas fa-person-booth fa-8x"></i>
+    <div class="counter" data-target="15000"></div>
+    <span><h2>Active Users count</h2></span>
+    
+</div>
+<div class="container">
+    <i class="fas fa-piggy-bank fa-8x"></i>
+    <div class="counter" data-target="5000000"></div>
+    <span><h2>Our Turn Over</h2></span>
+    
+</div>
+ <script>
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach((counter)=>{
+counter.inerHTML=0;
+const updateCounter=()=>{
+    const targetCount=+counter.getAttribute('data-target');
+    const startingCount=Number(counter.innerHTML);
+    const incr=targetCount/100;
+    if(startingCount<targetCount){
+        counter.innerHTML=`${Math.round(startingCount+incr)}`;
+        setTimeout(updateCounter,10)
+    }else{
+        counter.innerHTML=targetCount;
+    }
+}
+updateCounter();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
